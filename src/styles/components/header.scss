@@ -1,0 +1,55 @@
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $header_height;
+  padding: 0 40px;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+}
+.top-header__logo {
+  width: 54px;
+  height: 50px;
+  display: block;
+  position: relative;
+  &:hover {
+    width: 180px;
+    .top-header__logo-hover {
+      opacity: 1;
+      visibility: visible;
+    }
+    .top-header__logo-sm {
+      left: 63px;
+    }
+  }
+}
+.top-header__logo-sm {
+  width: 54px;
+  height: 50px;
+  display: block;
+  position: relative;
+  left: 0;
+  transition: left 0.5s ease;
+}
+.top-header__logo-hover {
+  width: 180px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: -4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+}
+.top-header__menu-opener {
+  svg {
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    svg {
+      fill: $c_green;
+    }
+  }
+}

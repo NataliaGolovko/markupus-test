@@ -1,0 +1,38 @@
+$c_green: #40d3ad;
+$header_height: 100px;
+$roboto: 'Roboto', Arial, sans-serif;
+
+body {
+  margin: 0;
+  background-color: #fff;
+  color: #000;
+  font: 20px/36px $roboto;
+}
+.wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+.main {
+  h1 {
+    font: 700 72px/76px $roboto;
+  }
+}
+.button {
+  font: 15px/20px $roboto;
+  background-color: $c_green;
+  color: #fff;
+  width: 240px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  padding: 23px 10px 17px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: opacity 0.5s ease;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
