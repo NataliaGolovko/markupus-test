@@ -10,8 +10,8 @@ var gulp = require('gulp'),
 
 function startWatch() {
 	gulp.watch('src/styles/**/*.scss', compileSass);
-	gulp.watch('src/styles/style.css', compilePug);
 	gulp.watch('src/views/**', compilePug);
+	gulp.watch('src/js/*.js', compilePug);
 	startBrowserSync('build');
 }
 
@@ -59,6 +59,7 @@ gulp.task('default', function() {
 	compilePug();
 	compileSass();
 	moveFolder('images');
+	moveFolder('js');
 	startWatch();
 
 });

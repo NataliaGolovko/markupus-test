@@ -2,6 +2,34 @@ $c_green: #40d3ad;
 $header_height: 100px;
 $roboto: 'Roboto', Arial, sans-serif;
 
+$desktop: 1280px;
+$laptop: 1024px;
+$tablet: 640px;
+$mobile: 320px;
+
+@mixin bp($size) {
+  @if $size == desktop {
+    @media screen and (max-width: $desktop) {
+      @content;
+    }
+  }
+  @else if $size == laptop {
+    @media screen and (max-width: $laptop) {
+      @content;
+    }
+  }
+  @else if $size == tablet {
+    @media screen and (max-width: $tablet) {
+      @content;
+    }
+  }
+  @else if $size == mobile {
+    @media screen and (max-width: $mobile) {
+      @content;
+    }
+  }
+}
+
 body {
   margin: 0;
   background-color: #fff;
@@ -12,10 +40,22 @@ body {
   max-width: 1500px;
   margin: 0 auto;
   padding: 0 50px;
+  @include bp(tablet) {
+    padding: 0 20px;
+  }
 }
 .main {
   h1 {
     font: 700 72px/76px $roboto;
+    @include bp(laptop) {
+      font-size: 50px;
+      line-height: 54px;
+    }
+    @include bp(mobile) {
+      font-size: 30px;
+      line-height: 34px;
+      margin-bottom: 30px;
+    }
   }
 }
 .button {
@@ -35,4 +75,5 @@ body {
     opacity: 0.6;
   }
 }
+
 
