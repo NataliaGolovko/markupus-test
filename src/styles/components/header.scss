@@ -7,9 +7,16 @@
   position: fixed;
   width: 100%;
   box-sizing: border-box;
-  background: #fff;
+  z-index: 5;
+  transition: background 0.3s ease;
+  &.bg-white {
+    background-color: #fff;
+  }
   @include bp(tablet) {
     padding: 0 20px;
+  }
+  @include bp(mobile) {
+    height: $mob_header_height;
   }
 }
 .top-header__logo {
@@ -47,6 +54,8 @@
   transition: opacity 1s ease;
 }
 .top-header__menu-opener {
+  display: block;
+
   svg {
     transition: all 0.3s ease;
   }
@@ -58,14 +67,25 @@
 }
 .nav {
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   width: 100%;
+  height: calc(100% - #{$header_height});
   bottom: 0;
-  height: calc(100vh - #{$header_height});
-  //display: flex;
+  display: none;
+  z-index: 20;
+  overflow: auto;
+  @include bp(mobile) {
+    height: calc(100% - #{$mob_header_height});
+  }
+}
+.nav__wrap {
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  display: none;
+  min-height: calc(100vh - #{$header_height});
+  @include bp(mobile) {
+    min-height: calc(100vh - #{$mob_header_height});
+  }
 }
 .nav__body {
   position: relative;
@@ -74,11 +94,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: auto;
+  flex-direction: column;
 }
 .nav__lang-list {
   position: absolute;
   right: 50px;
-  top: -20px;
+  top: 0;
+  @include bp(tablet) {
+    right: 20px;
+  }
+  @include bp(mobile) {
+    position: static;
+    display: flex;
+    li {
+      margin: 0 5px;
+    }
+  }
   li {
     text-align: center;
     text-transform: uppercase;
@@ -104,21 +136,36 @@
   text-align: center;
   font: 48px/52px $roboto;
   li {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     a {
       text-decoration: none;
       color: #000;
       border-bottom: 3px solid transparent;
       display: inline-block;
-      padding: 0 20px;
+      padding: 0 20px 15px;
       &:hover {
         border-bottom-color: #000;
       }
     }
   }
+  @include bp(laptop) {
+    font-size: 40px;
+    line-height: 44px;
+    li {
+      margin-bottom: 20px;
+    }
+  }
+  @include bp(mobile) {
+    font-size: 30px;
+    line-height: 34px;
+    li {
+      a {
+        padding-bottom: 5px;
+      }
+    }
+  }
 }
 .home-link {
-  display: block;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

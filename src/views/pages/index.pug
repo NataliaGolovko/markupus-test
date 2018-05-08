@@ -3,27 +3,29 @@ html
 	head
 		include ../components/head
 	body
-		include ../components/header
-		.main.wrapper
-			section.top-section
-				.top-section__text.top-section__col
-					h1 We are Creafresh
-					p A digitally minded creative agency.
-				.top-section__picture.top-section__col
-					img(src="images/logo-lg.png")
-			section.portfolio
-				.portfolio-wrap
-					- for (var i = 1; i <= 9; i++)
-						a(href="#" class= i >= 5 && i <= 7 ? 'portfolio-wrap__item narrow' : 'portfolio-wrap__item')
-							img(src="images/img" + [i] + ".jpg", alt="")
-				.portfolio__text-block
-					p Nunc nisl enim, dictum ut tincidunt vitae, dictum et odio. Etiam et posuere nulla, et cursus lectus. Proin sodales sagittis suscipit.
-					p Donec at erat metus. Aliquam magna lectus, pulvinar ut mattis at, ornare sit amet velit. Fusce eu felis lectus. In quis enim ut nisl accumsan dictum.
-					a(href="#").button View all works
-			section.gallery
-				strong.gallery__sub-ttl Creafresh
-				.gallery-wrap
-					- for (var i = 1; i <= 5; i++)
-						a.gallery-wrap__item(href="#")
-							img(src="images/gallery-img" + [i] + ".jpg", alt="")
-		include ../components/footer
+		.page
+			include ../components/header
+			.main.wrapper
+				section.top-section
+					.top-section__text.top-section__col
+						h1 We are Creafresh
+						p A digitally minded creative agency.
+					.top-section__picture.top-section__col
+						img.desktop-img(src="images/logo-lg.png")
+						img.mobile-img(src="images/section-logo-sm.png")
+				section.portfolio
+					.portfolio-wrap
+						- for (var i = 1; i <= 9; i++)
+							a(href="#" class= i >= 5 && i <= 7 ? 'portfolio-wrap__item narrow' : 'portfolio-wrap__item')
+								img(src="images/img" + [i] + ".jpg", alt="")
+					.portfolio__text-block
+						p Nunc nisl enim, dictum ut tincidunt vitae, dictum et odio. Etiam et posuere nulla, et cursus lectus. Proin sodales sagittis suscipit.
+						p Donec at erat metus. Aliquam magna lectus, pulvinar ut mattis at, ornare sit amet velit. Fusce eu felis lectus. In quis enim ut nisl accumsan dictum.
+						a(href="#").button View all works
+				section.gallery
+					strong.gallery__sub-ttl Creafresh
+					.gallery-wrap
+						- for (var i = 1; i <= 5; i++)
+							a.gallery-wrap__item(href="#")
+								img(src="images/gallery-img" + [i] + ".jpg", alt="")
+			include ../components/footer

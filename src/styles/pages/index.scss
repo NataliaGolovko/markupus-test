@@ -7,6 +7,8 @@
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  position: relative;
+
   @include bp(tablet) {
     min-height: 1px;
     display: block;
@@ -19,11 +21,26 @@
   img {
 	max-width: 100%;
   }
+  .mobile-img {
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    @include bp(tablet) {
+      display: block;
+    }
+    @include bp(mobile) {
+      top:75px;
+      right: -30px;
+    }
+  }
   @include bp(desktop) {
     width: 40%;
   }
   @include bp(tablet) {
-    display: none;
+    .desktop-img {
+      display: none;
+    }
   }
 }
 .top-section__text {
@@ -50,6 +67,7 @@
 .portfolio-wrap__item {
   width: calc(50% - 8px);
   margin-bottom: 16px;
+  display: block;
   &.narrow {
     width: calc(33.33% - 8px);
     @include bp(tablet) {
@@ -106,6 +124,7 @@
 .gallery-wrap__item {
   width: calc(20% - 7px);
   margin-bottom: 15px;
+  display: block;
   img{
     width: 100%;
     display: block;

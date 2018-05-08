@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 function startWatch() {
 	gulp.watch('src/styles/**/*.scss', compileSass);
 	gulp.watch('src/views/**', compilePug);
-	gulp.watch('src/js/*.js', compilePug);
+	gulp.watch('src/js/*.js', copy);
 	startBrowserSync('build');
 }
 
@@ -24,6 +24,11 @@ function startBrowserSync(folder) {
 			baseDir: folder
 		}
 	});
+}
+
+function copy() {
+	gulp.src(['src/js/*.js'])
+		.pipe(gulp.dest('build/js/'));
 }
 
 function compileSass () {
@@ -55,13 +60,11 @@ function moveFolder(folder) {
 }
 
 gulp.task('default', function() {
-	// startBrowserSync('build');
 	compilePug();
 	compileSass();
 	moveFolder('images');
-	moveFolder('js');
+	copy();
 	startWatch();
-
 });
 
 function swallowError(error) {
